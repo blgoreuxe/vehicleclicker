@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Clicker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 id="title">Vehicle Clicker</h1>
+    </header>
+    <div id="top">
+        <h1 id="score">0</h1>
+        <button id="main" onclick="add()">Click Me!</button>
+        <h3 id="info">1 Per Click - 0 Per Second</h3>
+    </div>
+    <div id="upgrades">
+        <h1><u>DEALERSHIP</u></h1>
+        <div id="multipliers">
+            <button id="ox" onclick="activateo()">1X</button>
+            <button id="tx" onclick="activatet()">10X</button>
+            <button id="hx" onclick="activateh()">100X</button>
+        </div>
+        <div id="cars">
+            <div id="suscar">
+                <img class="carimg" src="./images/amoguscar.jpeg" alt="Sus Car">
+                <h2 id="susamount">Sus Car - 0</h2>
+                <h3>+1 Per Click<br>+0 Per Second</h3>
+                <button onclick="buysus()" id="buysusbtn" class="buybutton">$25</button>
+            </div>
+            <div id="priuscar">
+                <img class="carimg" src="./images/prius.jpg" alt="Prius">
+                <h2 id="priusamount">Prius - 0</h2>
+                <h3>+10 Per Click<br>+1 Per Second</h3>
+                <button onclick="buyprius()" id="buypriusbtn" class="buybutton">$500</button>
+            </div>
+            <div id="volkcar">
+                <img class="carimg" src="./images/volkswagen.jpg" alt="Volkswagen Beetle">
+                <h2 id="volkamount">Volkswagen - 0</h2>
+                <h3>+25 Per Click<br>+3 Per Second</h3>
+                <button onclick="buyvolk()" id="buyvolkbtn" class="buybutton">$5,000</button>
+            </div>
+            <div id="hondacar">
+                <img class="carimg" src="./images/honda.png" alt="Honda Civic">
+                <h2 id="hondaamount">Honda - 0</h2>
+                <h3>+50 Per Click<br>+10 Per Second</h3>
+                <button onclick="buyhonda()" id="buyhondabtn" class="buybutton">$10,000</button>
+            </div>
+            <div id="mercedescar">
+                <img class="carimg" src="./images/mercedes.jpg" alt="Mercedes G Wagon">
+                <h2 id="mercedesamount">Mercedes - 0</h2>
+                <h3>+500 Per Click<br>+100 Per Second</h3>
+                <button onclick="buymercedes()" id="buymercedesbtn" class="buybutton">$100,000</button>
+            </div>
+            <div id="rollscar">
+                <img class="carimg" src="./images/rolls.jpg" alt="Rolls Royce">
+                <h2 id="rollsamount">Rolls Royce - 0</h2>
+                <h3>+5,000 Per Click<br>+1,000 Per Second</h3>
+                <button onclick="buyrolls()" id="buyrollsbtn" class="buybutton">$1,000,000</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
