@@ -23,6 +23,9 @@ let buyVolkBtn = document.getElementById('buyvolkbtn')
 let buyHondaBtn = document.getElementById('buyhondabtn')
 let buyMercedesBtn = document.getElementById('buymercedesbtn')
 let buyRollsBtn = document.getElementById('buyrollsbtn')
+let bug = 0
+let bugAmount = document.getElementById('bugamount')
+let buyBugBtn = document.getElementById('buybugbtn')
 let oxStyle = document.getElementById('ox').style
 let txStyle = document.getElementById('tx').style
 let hxStyle = document.getElementById('hx').style
@@ -38,7 +41,7 @@ function setupdata(){
     if (localStorage.getItem("score") === null) {
         localStorage.score = score;
     }else{
-        score = localStorage.score
+        score = parseInt(localStorage.score)
         scoreSet()
     }
 
@@ -46,14 +49,14 @@ function setupdata(){
     if (localStorage.getItem("cps") === null) {
         localStorage.cps = cps;
     }else{
-        cps = localStorage.cps
+        cps = parseInt(localStorage.cps)
     }
 
     //cpc
     if (localStorage.getItem("cpc") === null) {
         localStorage.cpc = cpc;
     }else{
-        cpc = localStorage.cpc
+        cpc = parseInt(localStorage.cpc)
         info.textContent = cpc + " Per Click - " + cps + " Per Second"
     }
 
@@ -61,7 +64,7 @@ function setupdata(){
     if (localStorage.getItem("sus") === null) {
         localStorage.sus = sus;
     }else{
-        sus = localStorage.sus
+        sus = parseInt(localStorage.sus)
         susAmount.textContent = "Sus Car - " + sus
     }
 
@@ -69,7 +72,7 @@ function setupdata(){
     if (localStorage.getItem("prius") === null) {
         localStorage.prius = prius;
     }else{
-        prius = localStorage.prius
+        prius = parseInt(localStorage.prius)
         priusAmount.textContent = "Prius - " + prius
     }
 
@@ -77,7 +80,7 @@ function setupdata(){
     if (localStorage.getItem("volks") === null) {
         localStorage.volks = volks;
     }else{
-        volks = localStorage.volks
+        volks = parseInt(localStorage.volks)
         volkAmount.textContent = "Volkswagen - " + volks
     }
 
@@ -85,7 +88,7 @@ function setupdata(){
     if (localStorage.getItem("honda") === null) {
         localStorage.honda = honda;
     }else{
-        honda = localStorage.honda
+        honda = parseInt(localStorage.honda)
         hondaAmount.textContent = "Honda - " + honda
     }
 
@@ -93,7 +96,7 @@ function setupdata(){
     if (localStorage.getItem("mercedes") === null) {
         localStorage.mercedes = mercedes;
     }else{
-        mercedes = localStorage.mercedes
+        mercedes = parseInt(localStorage.mercedes)
         mercedesAmount.textContent = "Mercedes - " + mercedes
     }
 
@@ -101,8 +104,16 @@ function setupdata(){
     if (localStorage.getItem("rolls") === null) {
         localStorage.rolls = rolls;
     }else{
-        rolls = localStorage.rolls
+        rolls = parseInt(localStorage.rolls)
         rollsAmount.textContent = "Rolls Royce - " + rolls
+    }
+
+    //bugatti
+    if (localStorage.getItem("bug") === null) {
+        localStorage.bug = bug;
+    }else{
+        bug = parseInt(localStorage.bug)
+        bugAmount.textContent = "Bugatti - " + bug
     }
 }
 
@@ -117,6 +128,7 @@ function store(){
     localStorage.setItem("honda", honda);
     localStorage.setItem("mercedes", mercedes);
     localStorage.setItem("rolls", rolls);
+    localStorage.setItem("bug", bug);
 }
 
 //The button the user clicks to add to the score
@@ -339,6 +351,42 @@ function buyrolls(){
     store()
 }
 
+//The function to buy bugatti
+function buybug(){
+    if (oxActive == true){
+        if (score >= 5000000){
+            cpc += 25000
+            cps += 5000
+            score -= 5000000
+            bug += 1
+            bugAmount.textContent = "Bugatti - " + bug
+            info.textContent = cpc + " Per Click - " + cps + " Per Second"
+            scoreSet()
+        }
+    }else if (txActive == true){
+        if (score >= 50000000){
+            cpc += 250000
+            cps += 50000
+            score -= 50000000
+            bug += 10
+            bugAmount.textContent = "Bugatti - " + bug
+            info.textContent = cpc + " Per Click - " + cps + " Per Second"
+            scoreSet()
+        }
+    }else{
+        if (score >= 500000000){
+            cpc += 2500000
+            cps += 500000
+            score -= 500000000
+            bug += 100
+            bugAmount.textContent = "Bugatti - " + bug
+            info.textContent = cpc + " Per Click - " + cps + " Per Second"
+            scoreSet()
+        }
+    }
+    store()
+}
+
 function activateo(){
     oxStyle.backgroundColor = "rgb(2, 109, 0)";
     txStyle.backgroundColor = "black";
@@ -352,6 +400,7 @@ function activateo(){
     buyHondaBtn.textContent = "$10,000"
     buyMercedesBtn.textContent = "$100,000"
     buyRollsBtn.textContent = "$1,000,000"
+    buyBugBtn.textContent = "$5,000,000"
 }
 
 function activatet(){
@@ -367,6 +416,7 @@ function activatet(){
     buyHondaBtn.textContent = "$100,000"
     buyMercedesBtn.textContent = "$1,000,000"
     buyRollsBtn.textContent = "$10,000,000"
+    buyBugBtn.textContent = "$50,000,000"
 }
 
 function activateh(){
@@ -382,6 +432,7 @@ function activateh(){
     buyHondaBtn.textContent = "$1,000,000"
     buyMercedesBtn.textContent = "$10,000,000"
     buyRollsBtn.textContent = "$100,000,000"
+    buyBugBtn.textContent = "$500,000,000"
 }
 
 //The function to simplify the score

@@ -115,6 +115,14 @@ header{
     padding-right: 0px;
 }
 
+#bugcar{
+    padding: 10px;
+    padding-top: 1px;
+    background-color: lightgray;
+    margin-bottom: 5px;
+    padding-right: 0px;
+}
+
 .carimg{
     float: right;
     height: 165px;
